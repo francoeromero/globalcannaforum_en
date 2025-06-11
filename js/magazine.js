@@ -857,7 +857,8 @@ function loadPage(page, pageElement) {
 				alignItems: 'center', // Centra verticalmente el contenido
 				cursor: 'pointer',
 			}).addClass('testeando')
-			let texto = $('<p></p>').text('CLICK PARA REPRODUCIR').css({
+
+				let texto = $('<p></p>').text('CLICK PARA REPRODUCIR').css({
 				color: 'black',
 				fontSize: '20px',
 				fontWeight: '400',
@@ -872,10 +873,52 @@ function loadPage(page, pageElement) {
 			contenedor.append(texto);
 
 
+
+			let container = $('<div></div>').css({
+				width: '83%',
+				height: '30%',
+				bottom: 340,
+				right:50,
+				position:'absolute',
+				background: 'rgba(0,0,0,0)',
+				zIndex: '99999999',
+				display: 'flex',
+				justifyContent: 'center', // Centra horizontalmente el contenido
+				alignItems: 'center', // Centra verticalmente el contenido
+				cursor: 'pointer',
+			}).addClass('testeando2')
+
+			let texto2 = $('<p></p>').text('CLICK AQUI').css({
+				color: 'white',
+				fontSize: '20px',
+				fontWeight: '400',
+				userSelect: 'none',
+				textAlign: 'center',
+				background: '#16500a', // Fondo semitransparente para mejor visibilidad
+				padding: '10px 20px',
+				position: 'absolute',
+				right:'0',
+				bottom:'0',
+				transform:'translate(20%,90%)',
+				borderRadius: '25px',
+				'font-family': "'Quicksand', sans-serif",
+				zIndex: 999999,
+			});
+			container.append(texto2);
+
+			container.click(function() {
+				createAFrame360Scene('./video/interior360-2.png');
+			});
+
+
+
+
+
 			contenedor.click(function() {
 				createVideoElement('./video/1.mp4');
 			});
 			pageElement.append(contenedor);
+			pageElement.append(container);
 		}}
 
 	else if(page == 15 && /iPhone/i.test(navigator.userAgent)){
